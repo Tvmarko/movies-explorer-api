@@ -40,7 +40,7 @@ app.post('/signup', celebrate({
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().regex(URL_REGEX),
-    password: Joi.string().required.min(8)(),
+    password: Joi.string().required().min(8),
   }),
 }), login);
 
