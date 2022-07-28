@@ -29,7 +29,7 @@ const movieSchema = new mongoose.Schema({
       validator(url) {
         return URL_REGEX.test(url);
       },
-      message: 'Не верный формат ссылки',
+      message: 'Неверный формат ссылки',
     },
   },
   trailer: {
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
       validator(url) {
         return URL_REGEX.test(url);
       },
-      message: 'Не верный формат ссылки',
+      message: 'Неверный формат ссылки',
     },
   },
   thumbnail: {
@@ -49,7 +49,7 @@ const movieSchema = new mongoose.Schema({
       validator(url) {
         return URL_REGEX.test(url);
       },
-      message: 'Не верный формат ссылки',
+      message: 'Неверный формат ссылки',
     },
   },
   owner: {

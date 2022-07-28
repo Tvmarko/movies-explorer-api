@@ -6,7 +6,7 @@ const AuthError = require('../errors/auth-error');
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
+    required: [true, 'поле не может быть пустым'],
     unique: true,
     validate: {
       validator: (v) => isEmail(v),
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true,
+    required: [true, 'поле не может быть пустым'],
     minlength: 2,
     maxlength: 30,
   },
