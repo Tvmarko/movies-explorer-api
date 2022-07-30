@@ -1,4 +1,8 @@
 const allowedCors = [
+  'https://diplomabytvmarko.nomoredomains.xyz',
+  'http://diplomabytvmarko.nomoredomains.xyz',
+  'https://api.diplomabytvmarko.nomoredomains.xyz',
+  'http://api.diplomabytvmarko.nomoredomains.xyz',
   'https://localhost:3000',
   'http://localhost:3000',
 ];
