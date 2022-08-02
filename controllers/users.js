@@ -34,7 +34,10 @@ module.exports.updateUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные');
+      } else if (err.code === 11000) {
+        throw new ConflictError('Пользователь уже зарегистрирован');
       }
+      throw err;
     })
     .catch(next);
 };
@@ -59,10 +62,10 @@ module.exports.createUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные');
-      } else next(err);
-      if (err.code === 11000) {
+      } else if (err.code === 11000) {
         throw new ConflictError('Пользователь уже зарегистрирован');
       }
+      throw err;
     })
     .catch(next);
 };
