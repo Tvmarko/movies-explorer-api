@@ -6,6 +6,7 @@ const VORBIDDEN_ERROR = 403;
 const SERVER_ERROR = 500;
 
 const MONGO_URL = process.env.NODE_ENV === 'production' ? process.env.MONGO_URL : 'mongodb://127.0.0.1:27017/moviesdb';
+const JWT_SECRET = process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : 'super-strong-secret';
 
 module.exports = {
   BADREQUEST_ERROR,
@@ -15,4 +16,5 @@ module.exports = {
   VORBIDDEN_ERROR,
   SERVER_ERROR,
   MONGO_URL,
+  JWT_SECRET,
 };
