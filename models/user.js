@@ -4,6 +4,12 @@ const { isEmail } = require('validator');
 const AuthError = require('../errors/auth-error');
 
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'поле не может быть пустым'],
+    minlength: 2,
+    maxlength: 30,
+  },
   email: {
     type: String,
     required: [true, 'поле не может быть пустым'],
@@ -17,12 +23,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     select: false,
-  },
-  name: {
-    type: String,
-    required: [true, 'поле не может быть пустым'],
-    minlength: 2,
-    maxlength: 30,
   },
 });
 
