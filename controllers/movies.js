@@ -4,10 +4,14 @@ const NotFoundError = require('../errors/notfound-error');
 const ForbiddenError = require('../errors/vorbidden-error');
 
 module.exports.getMovies = (req, res, next) => {
-  const owner = req.user._id;
-  Movie.find({ owner })
-    .populate('user')
-    .then((movies) => res.status(200).send(movies))
+  Movie.find({})
+    .then((movies) => {
+      if (movies.length === 0) {
+        res.send({ message: 'У Вас нет сохраненных фильмов' });
+      } else {
+        res.status(200).send(movies.filter((movie) => movie.owner.toString() === req.user._id));
+      }
+    })
     .catch(next);
 };
 
@@ -25,7 +29,7 @@ module.exports.createMovie = (req, res, next) => {
     thumbnail,
     movieId,
   } = req.body;
-  const ownerId = req.user._id;
+  const owner = req.user._id;
   Movie.create({
     country,
     director,
@@ -38,7 +42,7 @@ module.exports.createMovie = (req, res, next) => {
     nameEN,
     thumbnail,
     movieId,
-    owner: ownerId,
+    owner,
   })
     .then((card) => res.status(200).send(card))
     .catch((err) => {
