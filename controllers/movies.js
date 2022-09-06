@@ -4,7 +4,7 @@ const NotFoundError = require('../errors/notfound-error');
 const ForbiddenError = require('../errors/vorbidden-error');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({})
+  Movie.find({ owner: req.user._id })
     .then((movies) => {
       if (movies.length === 0) {
         res.send({ message: 'У Вас нет сохраненных фильмов' });

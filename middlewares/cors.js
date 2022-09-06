@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://diplomabytvmarko.nomoredomains.xyz',
-  'http://diplomabytvmarko.nomoredomains.xyz',
+  'https://diplomabytvmarko.nomorepartiesxyz.ru',
+  'http://diplomabytvmarko.nomorepartiesxyz.ru',
   'https://api.diplomabytvmarko.nomoredomains.xyz',
   'http://api.diplomabytvmarko.nomoredomains.xyz',
   'https://localhost:3000',
