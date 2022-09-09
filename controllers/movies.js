@@ -7,7 +7,7 @@ module.exports.getMovies = (req, res, next) => {
   Movie.find({ owner: req.user._id })
     .then((movies) => {
       if (movies.length === 0) {
-        res.send({ message: 'У Вас нет сохраненных фильмов' });
+        res.send([]);
       } else {
         res.status(200).send(movies.filter((movie) => movie.owner.toString() === req.user._id));
       }
